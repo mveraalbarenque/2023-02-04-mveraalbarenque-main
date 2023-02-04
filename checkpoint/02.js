@@ -4,12 +4,13 @@ const Stack = require("../DS").Stack;
 //
 //
 //
-// 2️⃣ ***** EJERCICIO 2 STACK***** - apilarPantalones() 2️⃣ 
-// 
+// 2️⃣ ***** EJERCICIO 2 STACK***** - apilarPantalones() 2️⃣
+//
 // Un cliente ha solicitado pantalones de una talla determinada. Es necesario ir a buscar al inventario los pantalones y obtener
 // las prendas solicitadas según su talla
 // Para esto, tendrás que implementar la función 👖 apilarPantalones 👖, la cual recibirá por parámetros un arreglo
-// conteniendo multiples tallas, además de un número de talla a solicitar. Deberás retornar un objeto, el cual contendrá una nueva pila
+// conteniendo multiples tallas, además de un número de talla a solicitar.
+// Deberás retornar un objeto, el cual contendrá una nueva pila
 // con los pantalones solicitados y el arreglo anterior con los pantalones restantes
 // EJEMPLOS:
 // Dado el siguiente arreglo (INPUT): [37, 38, 38, 39, 41, 36, 41, 41, 37, 42]
@@ -27,10 +28,23 @@ const Stack = require("../DS").Stack;
 
 function apilarPantalones(array, talla) {
   // Tu código aquí:
-};
 
+  if (array.length <= 0) return false;
+  const respuesta = {};
+  const pantalonesEncontrados = new Stack();
+  const pantalonesRestantes = new Stack();
+  while (array.length > 0) {
+    let actual = array.shift();
+    actual === talla
+      ? pantalonesEncontrados.push(actual)
+      : pantalonesRestantes.push(actual);
+  }
+  respuesta["pantalonesEncontrados"] = pantalonesEncontrados;
+  respuesta["pantalonesRestantes"] = pantalonesRestantes;
+  return respuesta;
+}
 
 // ⚠️ NO MODIFICAR NADA POR DEBAJO DE ESTA LÍNEA ⚠️
 module.exports = {
-  apilarPantalones
+  apilarPantalones,
 };
