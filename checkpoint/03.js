@@ -24,6 +24,40 @@
 
 function chequearDisponibilidad(ropas) {
   // Tu código aquí:
+  //cambiar nombre -->  chequear()
+  let cont = 0;
+  const chequear = (ropas, stock) => {
+    const buscadas = stock.length;
+    let encontrada = false;
+
+    ropas.forEach((obj) => {
+      stock.forEach((item) => {
+        if (obj === item) {
+          cont++;
+          encontrada = true;
+        }
+      });
+    });
+
+    if (!encontrada) return "No se encontraron las prendas solicitadas";
+
+    if (cont === buscadas) {
+      return "Todas las prendas fueron encontradas";
+    } else {
+      return (
+        cont +
+        " de las " +
+        buscadas +
+        " prendas solicitadas se encuentran en el stock"
+      );
+    }
+  };
+
+  return (stock) => {
+    return stock.length <= 0
+      ? "No se encontraron las prendas solicitadas"
+      : chequear(ropas, stock);
+  };
 }
 
 // ⚠️ NO MODIFICAR NADA POR DEBAJO DE ESTA LÍNEA ⚠️

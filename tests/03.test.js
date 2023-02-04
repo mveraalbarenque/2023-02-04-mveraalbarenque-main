@@ -28,19 +28,24 @@ describe("Ejercicio 03 - 🔍 chequearDisponibilidad 🔍", () => {
     ];
     const chequear = chequearDisponibilidad(ropa);
     expect(chequear(stock)).toBe(
-      "1 de las 3 prendas solicitadas se encuentran en el stock"
+      "1 de las 4 prendas solicitadas se encuentran en el stock",
     );
 
     const ropa2 = ["Camiseta Verde", "Pantalón Rojo", "Gorra Azul"];
     const stock2 = ["Pantalón Rojo", "Camiseta Negra", "Camiseta Verde"];
     const chequear2 = chequearDisponibilidad(ropa2);
     expect(chequear2(stock2)).toBe(
-      "2 de las 3 prendas solicitadas se encuentran en el stock"
+      "2 de las 3 prendas solicitadas se encuentran en el stock",
     );
   });
 
   test("Debe retornar: Todas las prendas fueron encontradas", function () {
-    const ropa = ["Camiseta Verde", "Pantalón Rojo", "Gorra Azul"];
+    const ropa = [
+      "Camiseta Verde",
+      "Pantalón Rojo",
+      "Gorra Azul",
+      "Camiseta Lila",
+    ];
     const stock = [
       "Camiseta Verde",
       "Pantalón Rojo",
