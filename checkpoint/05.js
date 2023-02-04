@@ -18,8 +18,18 @@
 //
 // TIP: tambien podes usar un rest parameter.
 
-function liquidacion(array) {
+function liquidacion(array, respuesta = []) {
   // Tu código aquí:
+  if (array.length !== 0) {
+    const actual = array.pop();
+    const key = Object.keys(actual);
+    if (actual[key].LIQUIDACION) {
+      respuesta.push(actual);
+    }
+    return liquidacion(array, respuesta);
+  } else {
+    return respuesta;
+  }
 }
 
 // ⚠️ NO MODIFICAR NADA POR DEBAJO DE ESTA LÍNEA ⚠️
