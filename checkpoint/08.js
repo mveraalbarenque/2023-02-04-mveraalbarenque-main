@@ -1,9 +1,9 @@
-const { LinkedList } = require('../DS');
+const { LinkedList } = require("../DS");
 // ⚠️ NO MODIFICAR NADA POR ENCIMA DE ESTA LÍNEA ⚠️
 //
 //
-// 8️⃣ ** EJERCICIO 8 LINKEDLIST** - tacharLista() 8️⃣ 
-// 
+// 8️⃣ ** EJERCICIO 8 LINKEDLIST** - tacharLista() 8️⃣
+//
 // Llegó la hora de revisar el catálogo de ropa disponible! tendremos que tachar las que hayan se hayan agotado
 // el stock
 // Agregar al prototype de LinkedList el método 📄 tacharLista() 📄 el cuál recibirá por parámetros un array de strings,
@@ -23,14 +23,21 @@ const { LinkedList } = require('../DS');
 // 🟢 Si el arreglo viene vacío retornar la LinkedList COMPLETA.
 // Tip: Tanto las LinkedList como los arreglos, contendrán siempre strings.
 
-LinkedList.prototype.tacharLista = function(lista) {
+LinkedList.prototype.tacharLista = function (lista) {
   // Tu código aquí:
-}
-  
-  
+  let respuesta = new LinkedList();
+  let actual = this.head;
 
+  while (actual) {
+    if (!lista.includes(actual.value)) {
+      respuesta.add(actual.value);
+    }
+    actual = actual.next;
+  }
+  return respuesta;
+};
 
 // ⚠️ NO MODIFICAR NADA POR DEBAJO DE ESTA LÍNEA ⚠️
 module.exports = {
-  LinkedList
+  LinkedList,
 };
