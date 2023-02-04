@@ -33,17 +33,13 @@ const { LinkedList } = require("../DS");
 LinkedList.prototype.migrarStock = function () {
   // Tu código aquí:
   let respuesta = {};
-  if (!this.cabecera()) return "No hay stock para migrar";
-  let actual = this.cabecera();
+  if (!this.head) return "No hay stock para migrar";
+  let actual = this.head;
   while (actual) {
     respuesta[actual.value.nombre] = actual.value.stock;
     actual = actual.next;
   }
   return respuesta;
-};
-LinkedList.prototype.cabecera = function () {
-  if (!this.head) return null;
-  return this.head;
 };
 
 // ⚠️ NO MODIFICAR NADA POR DEBAJO DE ESTA LÍNEA ⚠️
