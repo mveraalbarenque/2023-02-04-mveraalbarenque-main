@@ -18,9 +18,22 @@
 
 function ordenarRopa(ropa) {
   // Tu código aquí:
+  let cambio = true;
+  while (cambio) {
+    cambio = false;
+    for (let i = 0; i < ropa.length - 1; i++) {
+      const actual = ropa[i];
+      const mayor = ropa[i + 1];
+      if (actual.precio < mayor.precio) {
+        [ropa[i], ropa[i + 1]] = [mayor, actual];
+        cambio = true;
+      }
+    }
+  }
+  return ropa;
 }
 
 // ⚠️ NO MODIFICAR NADA POR DEBAJO DE ESTA LÍNEA ⚠️
 module.exports = {
-  ordenarRopa
+  ordenarRopa,
 };
