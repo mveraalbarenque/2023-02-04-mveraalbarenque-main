@@ -38,29 +38,15 @@ BinarySearchTree.prototype.vender = function (array) {
   // Tu código aquí:
   const procesar = (listado) => {
     listado.forEach((obj) => {
-      let actual = this.raiz();
-      if (actual.nombre === obj) actual.vendido = true;
+      if (this.value.nombre === obj) this.value.vendido = true;
     });
   };
 
   if (array.length === 0) return false;
   else procesar(array);
 
-  if (this.izquierda()) this.izquierda().vender(array);
-  if (this.derecha()) this.derecha().vender(array);
-};
-
-BinarySearchTree.prototype.raiz = function () {
-  if (!this.value) return null;
-  return this.value;
-};
-BinarySearchTree.prototype.izquierda = function () {
-  if (!this.left) return null;
-  return this.left;
-};
-BinarySearchTree.prototype.derecha = function () {
-  if (!this.right) return null;
-  return this.right;
+  if (this.left) this.left.vender(array);
+  if (this.right) this.right.vender(array);
 };
 
 // ⚠️ NO MODIFICAR NADA POR DEBAJO DE ESTA LÍNEA ⚠️
