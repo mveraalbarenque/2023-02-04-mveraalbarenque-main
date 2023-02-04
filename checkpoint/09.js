@@ -37,29 +37,14 @@ const { BinarySearchTree } = require("../DS");
 
 BinarySearchTree.prototype.obtenerPrendas = function (string, respuesta = []) {
   // Tu código aquí:
-  let actual = this.raiz();
-  if (actual) {
-    if (actual.nombre === string) respuesta.push(string);
-    if (this.izquierda()) this.izquierda().obtenerPrendas(string, respuesta);
-    if (this.derecha()) this.derecha().obtenerPrendas(string, respuesta);
+  if (this.value) {
+    if (this.value.nombre === string) respuesta.push(string);
+    if (this.left) this.left.obtenerPrendas(string, respuesta);
+    if (this.right) this.right.obtenerPrendas(string, respuesta);
   }
   return respuesta;
 };
 
-BinarySearchTree.prototype.raiz = function () {
-  if (!this.value) return null;
-  return this.value;
-};
-
-BinarySearchTree.prototype.izquierda = function () {
-  if (!this.left) return null;
-  return this.left;
-};
-
-BinarySearchTree.prototype.derecha = function () {
-  if (!this.right) return null;
-  return this.right;
-};
 // ⚠️ NO MODIFICAR NADA POR DEBAJO DE ESTA LÍNEA ⚠️
 module.exports = {
   BinarySearchTree,
